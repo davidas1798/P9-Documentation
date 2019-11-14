@@ -5,18 +5,12 @@ require "p6/version"
 Gem::Specification.new do |spec|
   spec.name          = "p6"
   spec.version       = P6::VERSION
-  spec.authors       = ["Carmen Castro"]
-  spec.email         = ["alu0101045603@ull.edu.es"]
+  spec.authors       = ["David Arteaga Sánchez"]
+  spec.email         = ["alu0101039664@ull.edu.es"]
 
   spec.summary       = %q{P6 - Lenguajes y Paradigmal de Programación - ULL}
   spec.description   = %q{Información nutricional de alimentos}
-  spec.homepage      = "https://github.com/ULL-ESIT-LPP-1920/tdd-carcasgon.git"
-
-  #spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com"
-
-  #spec.metadata["homepage_uri"] = spec.homepage
-  #spec.metadata["source_code_uri"] = "git@github.com:ULL-ESIT-LPP-1920/tdd-carcasgon.git"
-  #spec.metadata["changelog_uri"] = "git@github.com:ULL-ESIT-LPP-1920/tdd-carcasgon.git"
+  spec.homepage      = "https://github.com/ULL-ESIT-LPP-1920/tdd-davidas1798.git"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
