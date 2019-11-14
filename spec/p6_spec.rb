@@ -64,6 +64,4 @@ RSpec.describe P6 do
 		@tofu.formateo
 		@pollo.formateo
 	end
-	
-
 end
