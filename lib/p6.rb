@@ -1,16 +1,15 @@
-require "p6/version"
+require 'p6/version'
 
-module P6
   class Alimento
-  	attr_accessor :nombre_, :proteinas_, :carbo_, :lipidos_ :emision_, :terreno_
+  	attr_accessor :nombre_, :proteinas_, :carbo_, :lipidos_, :emision_, :terreno_
 
   	def initialize(nombre, proteinas, carbo, lipidos, emision, terreno)
-  		nombre_ = nombre
-  		proteinas_ = proteinas
-  		carbo_ = carbo
-  		lipidos_ = lipidos
-  		emision_ = emision
-  		terreno_ = terreno
+  		@nombre_ = nombre
+  		@proteinas_ = proteinas
+  		@carbo_ = carbo
+  		@lipidos_ = lipidos
+  		@emision_ = emision
+  		@terreno_ = terreno
   	end
 
   	def nombre
@@ -49,5 +48,5 @@ module P6
   		print "\tEmisión de gases: #{@emision_}\n"
   		print "\tTerreno utilizado: #{@terreno_}\n\n"
   	end
-
 end
+

@@ -5,48 +5,65 @@ RSpec.describe P6 do
 	end
 	
 	before(:each) do
-		@alimento1 = Alimento.new("Chocolate", 5.3, 47, 30, 2.3, 3.4)
-		@alimento2 = Alimento.new("Tofu", 8, 1.9, 4.8, 2.0, 2.2)
-		@alimento3 = Alimento.new("Pollo", 20.6, 0, 5.6, 5.7, 7.1)
+		@chocolate = Alimento.new("Chocolate", 5.3, 47, 30, 2.3, 3.4)
+		@tofu = Alimento.new("Tofu", 8, 1.9, 4.8, 2.0, 2.2)
+		@pollo = Alimento.new("Pollo", 20.6, 0, 5.6, 5.7, 7.1)
+		@salmon = Alimento.new("Salmon", 19.9, 0, 13.6, 6, 3.7)
+		@huevos = Alimento.new("Huevos", 13, 1.1, 11, 4.2, 5.7)
+	    @lentejas = Alimento.new("Lentejas", 23.5, 52, 1.4, 0.4, 3.4)
+
+		@comida_mujer = [@salmon, @tofu, @chocolate, @tofu]
+		@comida_hombre = [@chocolate, @huevos, @lentejas]
+
+		def impacto(menu)
+			impac_terreno = 0
+			impac_emision = 0
+			menu.each{| alimento |
+				impac_terreno+=alimento.terreno_
+				impac_emision+=alimento.emision_
+			}
+			
+			puts "El menu causa un impacto de #{impac_terreno} m2 usados por año y #{impac_emision}kgCO2eq emisiones de gases del efecto invernadero."
+			[impac_terreno.round(2), impac_emision.round(2)]
+		end
 	end
 
-	it "Debe existir un metodo para obtener el nombre para el alimento" do
-		expect(@alimento1.nombre_).to eq("Chocolate")
-		expect(@alimento2.nombre_).to eq("Tofu")
-		expect(@alimento3.nombre_).to eq("Pollo")
+	it "Existe un metodo para obtener el nombre para el alimento" do
+		expect(@chocolate.nombre).to eq("Chocolate")
+		expect(@tofu.nombre).to eq("Tofu")
+		expect(@pollo.nombre).to eq("Pollo")
 	end
 
-	it "Debe existir un metodo para obtener la cantidad de emision de gases del efecto invernadero en kgCO2eq" do
-		expect(@alimento1.obtener_gei).to eq(2.3)
-		expect(@alimento2.obtener_gei).to eq(2.0)
-		expect(@alimento3.obtener_gei).to eq(5.7)
+	it "Existe un metodo para obtener la cantidad de emision de gases del efecto invernadero en kgCO2eq" do
+		expect(@chocolate.emision_).to eq(2.3)
+		expect(@tofu.emision_).to eq(2.0)
+		expect(@pollo.emision_).to eq(5.7)
 	end
 
-	it "Debe existir un metodo para obtener la cantidad de terreno en m2" do
-		expect(@alimento1.obtener_terreno).to eq(3.4)
-		expect(@alimento2.obtener_terreno).to eq(2.2)
-		expect(@alimento3.obtener_terreno).to eq(7.1)	
+	it "Existe un metodo para obtener la cantidad de terreno en m2" do
+		expect(@chocolate.terreno_).to eq(3.4)
+		expect(@tofu.terreno_).to eq(2.2)
+		expect(@pollo.terreno_).to eq(7.1)	
 	end
 
-	it "Debe existir un metodo para obtener el valor energetico" do
-		expect(@alimento1.obtener_ValorEnergetico).to eq(479.2)
-		expect(@alimento2.obtener_ValorEnergetico).to eq(82.8)
-		expect(@alimento3.obtener_ValorEnergetico).to eq(132.8)
+	it "Existe un metodo para obtener el valor energetico" do
+		expect(@chocolate.calorias).to eq(479.2)
+		expect(@tofu.calorias).to eq(82.8)
+		expect(@pollo.calorias).to eq(132.8)
 	end
 
-	it "Debe calcular corectamente el imparto ambiental de un hombre/mujer de 20-39 años" do
-	#	expect(impacto_ambiental("hombre")).to eq()
-	#	expect(impacto_ambiental("mujer")).to eq()
+	it "Existe corectamente el impacto ambiental de un hombre/mujer de 20-39 años" do
+		puts "Impacto ambiental de la mujer"	
+		expect(impacto(@comida_mujer)).to eq([11.5, 12.3])
+		puts "Impacto ambiental del hombre"
+		expect(impacto(@comida_hombre)).to eq([12.5, 6.9])
 	end
 
-	it "Debe existir un metodo para formatear el alimento" do
-		@alimento1.formatear
-		@alimento2.formatear
-		@alimento3.formatear
+	it "Existe un metodo para formatear el alimento" do
+		@chocolate.formateo
+		@tofu.formateo
+		@pollo.formateo
 	end
 	
-	it "Comprobacion de que se formateo el alimento" do
-	#	expect(@alimento1.obtener_nombre).to eq(nil)
-	end
 
 end
