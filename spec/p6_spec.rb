@@ -29,9 +29,9 @@ RSpec.describe P6 do
 	end
 
 	it "Existe un metodo para obtener el nombre para el alimento" do
-		expect(@chocolate.nombre).to eq("Chocolate")
-		expect(@tofu.nombre).to eq("Tofu")
-		expect(@pollo.nombre).to eq("Pollo")
+		expect(@chocolate.nombre_).to eq("Chocolate")
+		expect(@tofu.nombre_).to eq("Tofu")
+		expect(@pollo.nombre_).to eq("Pollo")
 	end
 
 	it "Existe un metodo para obtener la cantidad de emision de gases del efecto invernadero en kgCO2eq" do
@@ -52,7 +52,7 @@ RSpec.describe P6 do
 		expect(@pollo.calorias).to eq(132.8)
 	end
 
-	it "Existe corectamente el impacto ambiental de un hombre/mujer de 20-39 años" do
+	it "Existe un metodo para calcular el impacto ambiental de un hombre/mujer de 20-39 años" do
 		puts "Impacto ambiental de la mujer"	
 		expect(impacto(@comida_mujer)).to eq([11.5, 12.3])
 		puts "Impacto ambiental del hombre"
@@ -60,8 +60,9 @@ RSpec.describe P6 do
 	end
 
 	it "Existe un metodo para formatear el alimento" do
-		@chocolate.formateo
-		@tofu.formateo
-		@pollo.formateo
+		expect(@chocolate.to_s).to eq("#{@chocolate}")
+		expect(@tofu.to_s).to eq("#{@tofu}")
+		expect(@pollo.to_s).to eq("#{@pollo}")
+
 	end
 end

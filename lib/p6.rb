@@ -16,8 +16,8 @@ require 'p6/version'
   		@carbo_*4 + @lipidos_*9 + @proteinas_*4
   	end
 
-  	def formateo
-      print "(#{@nombre},#{@proteinas}, #{@carbo}, #{@lipidos}, #{@emision}, #{@terreno})"
+  	def to_s
+      "(#{@nombre_},#{@proteinas_}, #{@carbo_}, #{@lipidos_}, #{@emision_}, #{@terreno_})"
   	end
 end
 
