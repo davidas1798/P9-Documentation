@@ -1,3 +1,5 @@
+require './lib/p6.rb'
+
 RSpec.describe P6 do
 
 	it "has a version number" do
@@ -23,7 +25,6 @@ RSpec.describe P6 do
 				impac_emision+=alimento.emision_
 			}
 			
-			puts "El menu causa un impacto de #{impac_terreno} m2 usados por año y #{impac_emision}kgCO2eq emisiones de gases del efecto invernadero."
 			[impac_terreno.round(2), impac_emision.round(2)]
 		end
 	end
@@ -52,10 +53,8 @@ RSpec.describe P6 do
 		expect(@pollo.calorias).to eq(132.8)
 	end
 
-	it "Existe un metodo para calcular el impacto ambiental de un hombre/mujer de 20-39 años" do
-		puts "Impacto ambiental de la mujer"	
+	it "Existe un metodo para calcular el impacto ambiental de un hombre/mujer de 20-39 años" do	
 		expect(impacto(@comida_mujer)).to eq([11.5, 12.3])
-		puts "Impacto ambiental del hombre"
 		expect(impacto(@comida_hombre)).to eq([12.5, 6.9])
 	end
 
