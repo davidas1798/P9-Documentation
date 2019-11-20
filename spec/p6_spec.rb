@@ -34,8 +34,10 @@ RSpec.describe P6 do
 
 		def emision_dieta(lista)
 			total = 0
-			lista.each do |nodo|
-				total += nodo.value.emision_
+			puntero = lista.head
+			while(puntero != nil)
+				total += puntero.value.emision_
+				puntero = puntero.next
 			end
 			
 			return total
@@ -47,8 +49,10 @@ RSpec.describe P6 do
 
 		def terreno_dieta(lista)
 			total = 0
-			lista.each do |nodo|
-				total += nodo.value.terreno_
+			puntero = lista.head
+			while(puntero != nil)
+				total += puntero.value.terreno_
+				puntero = puntero.next
 			end
 			
 			return total
@@ -134,15 +138,15 @@ RSpec.describe P6 do
 		end
 
 		it "Emision de gases de efecto invernadero" do
-			expect(emision_dieta(@lista)).to eq(2.9)
+			expect(emision_dieta(@lista)).to eq(12.3)
 		end
 
 		it "Emision de gases de efecto invernadero anual" do
-			expect(emision_dieta_año(@lista)).to eq(3.1)
+			expect(emision_dieta_año(@lista)).to eq(4489.5)
 		end
 
 		it "Uso de terreno por m2" do
-			expect(terreno_dieta(@lista)).to eq(2.7)
+			expect(terreno_dieta(@lista)).to eq(11.5)
 		end
 
 	end
