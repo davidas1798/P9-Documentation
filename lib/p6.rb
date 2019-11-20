@@ -1,23 +1,7 @@
 require 'p6/version'
+require 'p6/alimento'
+require 'p6/list'
 
-  class Alimento
-  	attr_accessor :nombre_, :proteinas_, :carbo_, :lipidos_, :emision_, :terreno_
+module P6
 
-  	def initialize(nombre, proteinas, carbo, lipidos, emision, terreno)
-  		@nombre_ = nombre
-  		@proteinas_ = proteinas
-  		@carbo_ = carbo
-  		@lipidos_ = lipidos
-  		@emision_ = emision
-  		@terreno_ = terreno
-  	end
-
-  	def calorias
-  		@carbo_*4 + @lipidos_*9 + @proteinas_*4
-  	end
-
-  	def to_s
-      "(#{@nombre_},#{@proteinas_}, #{@carbo_}, #{@lipidos_}, #{@emision_}, #{@terreno_})"
-  	end
 end
-

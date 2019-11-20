@@ -1,5 +1,5 @@
-require './lib/p6.rb'
-
+require './lib/p6/alimento.rb'
+require './lib/p6/list.rb'
 RSpec.describe P6 do
 
 	it "has a version number" do
@@ -65,3 +65,4 @@ RSpec.describe P6 do
 
 	end
 end
+
