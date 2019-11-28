@@ -1,5 +1,6 @@
 require './lib/p6/alimento.rb'
 require './lib/p6/list.rb'
+require './lib/p6/plato.rb'
 RSpec.describe P6 do
 
 	it "has a version number" do
@@ -20,6 +21,8 @@ RSpec.describe P6 do
 		@lista = List.new
 		@lista.insert_many(@comida_mujer)
 		@lista_vacia = List.new
+
+		@plato_mujer = Plato_i.new("Salmon con tofu", @comida_mujer, [25,10,10,15])
 
 		def impacto(menu)
 			impac_terreno = 0
@@ -147,6 +150,40 @@ RSpec.describe P6 do
 
 		it "Uso de terreno por m2" do
 			expect(terreno_dieta(@lista)).to eq(11.5)
+		end
+
+	end
+
+	describe "Plato" do
+
+		it "Obteniendo el nombre de un plato" do
+			expect(@plato_mujer.nombre_).to eq("Salmon con tofu")
+		end
+
+		it "Existe un conjunto de alimentos" do
+			expect(@plato_mujer.alimentos_.head).not_to be nil
+			expect(@plato_mujer.alimentos_.tail).not_to be nil
+		end
+
+		it "Existe un conjunto de cantidades de alimentos en gramos"
+			expect(@plato_mujer.peso_.head).not_to be nil
+			expect(@plato_mujer.peso_.tail).not_to be nil
+		end
+
+		it "Porcentaje de proteínas del conjunto de alimentos"
+			expect(@plato_mujer.porc_proteinas).to eq(7)
+		end
+
+		it "Porcentaje de hidratos de carbono del conjunto de alimentos"
+			expect(@plato_mujer.porc_carbo).to eq(7)
+		end
+
+		it "Porcentaje de lípidos del conjunto de alimentos"
+			expect(@plato_mujer.porc_lipidos).to eq(7)
+		end
+
+		it "Valor calórico total del conjunto de alimentos"
+			expect(@plato_mujer.vct).to eq(356)
 		end
 
 	end

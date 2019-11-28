@@ -19,5 +19,10 @@ require 'p6/version'
   	def to_s
       "(#{@nombre_},#{@proteinas_}, #{@carbo_}, #{@lipidos_}, #{@emision_}, #{@terreno_})"
   	end
+
+    def <=>(other)
+      calorias <=> other.calorias
+    end
+    
 end
 

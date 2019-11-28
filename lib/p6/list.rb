@@ -1,6 +1,8 @@
 Node = Struct.new(:value, :next, :prev)
 
 class List
+	include Enumerable
+
 	attr_accessor :size, :head, :tail
 
 	def initialize()
@@ -84,6 +86,24 @@ class List
 		else
 			return false
 		end
+	end
+
+	def each()					# esto me lo estoy medio inventando
+		puntero = @head
+		while(puntero != nil)
+			yield puntero.value
+			puntero = head.next
+		end
+	end
+
+	def to_s
+		nodo = @head
+		cadena =""
+		while (nodo != nil)
+			cadena =cadena + nodo.value.to_s
+			nodo = nodo.next
+		end
+		return cadena
 	end
 
 end
