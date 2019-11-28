@@ -165,25 +165,25 @@ RSpec.describe P6 do
 			expect(@plato_mujer.alimentos_.tail).not_to be nil
 		end
 
-		it "Existe un conjunto de cantidades de alimentos en gramos"
+		it "Existe un conjunto de cantidades de alimentos en gramos" do
 			expect(@plato_mujer.peso_.head).not_to be nil
 			expect(@plato_mujer.peso_.tail).not_to be nil
 		end
 
-		it "Porcentaje de proteínas del conjunto de alimentos"
-			expect(@plato_mujer.porc_proteinas).to eq(7)
+		it "Porcentaje de proteínas del conjunto de alimentos" do
+			expect(@plato_mujer.porc_proteinas).to eq(35.01076426264801)
 		end
 
-		it "Porcentaje de hidratos de carbono del conjunto de alimentos"
-			expect(@plato_mujer.porc_carbo).to eq(7)
+		it "Porcentaje de hidratos de carbono del conjunto de alimentos" do
+			expect(@plato_mujer.porc_carbo).to eq(24.085037674919274)
 		end
 
-		it "Porcentaje de lípidos del conjunto de alimentos"
-			expect(@plato_mujer.porc_lipidos).to eq(7)
+		it "Porcentaje de lípidos del conjunto de alimentos" do
+			expect(@plato_mujer.porc_lipidos).to eq(40.90419806243272)
 		end
 
-		it "Valor calórico total del conjunto de alimentos"
-			expect(@plato_mujer.vct).to eq(356)
+		it "Valor calórico total del conjunto de alimentos" do
+			expect(@plato_mujer.vct).to eq(846.8)
 		end
 
 	end

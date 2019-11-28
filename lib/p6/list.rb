@@ -96,6 +96,22 @@ class List
 		end
 	end
 
+	def [](i)
+		if i.is_a?Integer
+			if i == 0
+				return @head.value
+			elsif i == (@size - 1)
+				return @tail.value
+			elsif i < @size - 1 && i > 0
+				puntero = @head
+				i.times{puntero = puntero.next}
+				return puntero.value
+			else 
+				return nil
+			end
+		end
+	end
+
 	def to_s
 		nodo = @head
 		cadena =""

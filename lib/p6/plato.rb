@@ -77,7 +77,7 @@ class Plato_i
 		return (peso_[i] * alimentos[i].calorias) / 100
 	end
 
-
 end
+
 
 
