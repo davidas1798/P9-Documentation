@@ -94,6 +94,17 @@ RSpec.describe P6 do
 			expect(@pollo.to_s).to eq("#{@pollo}")
 
 		end
+
+		context "Comparable" do
+			it "Probando el método comparable" do
+				expect(@chocolate > @tofu).to be(true)
+				expect(@pollo < @chocolate).to be(true)
+				expect(@chocolate >= @tofu).to be(true)
+				expect(@pollo <= @chocolate).to be(true)
+				expect(@chocolate == @chocolate).to be(true)
+				expect(@pollo.between?(@tofu, @chocolate)).to be(true)
+			end
+		end
 	end
 
 	describe "Lista" do
@@ -152,9 +163,13 @@ RSpec.describe P6 do
 			expect(terreno_dieta(@lista)).to eq(11.5)
 		end
 
+		context "Enumerable" do
+			
+		end
+
 	end
 
-	describe "Plato" do
+	describe "Plato_i" do
 
 		before (:each) do
 			@plato_mujer = Plato_i.new("Salmon con tofu", @comida_mujer, [25,10,10,15])
@@ -199,7 +214,28 @@ RSpec.describe P6 do
 			expect(@plato_mujer_completo.terreno_total).to eq(1.8150000000000002)
 		end
 
+		it "Comprobando la clase del objeto" do
+			expect(@plato_mujer.class).to eq(Plato_i)
+		end
+
+		it "Comprobando jerarquía" do
+			expect(@plato_mujer.instance_of?Plato_i).to eq(true)
+			expect(@plato_mujer.is_a?Plato_i).to eq(true)
+			expect(@plato_mujer.is_a?Object).to eq(true)
+			expect(@plato_mujer.is_a?BasicObject).to eq(true)
+		end
+
+		it "Comprobando tipo de objeto" do
+            expect(@plato_mujer.kind_of?Plato_i).to eq(true)
+            expect(@plato_mujer.kind_of?Object).to eq(true)
+            expect(@plato_mujer.kind_of?BasicObject).to eq(true)
+        end
+
+        
+        	
+
 	end
+
 
 end
 

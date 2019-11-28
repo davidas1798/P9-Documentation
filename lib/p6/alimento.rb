@@ -1,6 +1,8 @@
 require 'p6/version'
 
   class Alimento
+    include Comparable
+
   	attr_accessor :nombre_, :proteinas_, :carbo_, :lipidos_, :emision_, :terreno_
 
   	def initialize(nombre, proteinas, carbo, lipidos, emision, terreno)
