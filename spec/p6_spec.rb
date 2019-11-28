@@ -18,12 +18,6 @@ RSpec.describe P6 do
 		@comida_mujer = [@salmon, @tofu, @chocolate, @tofu]
 		@comida_hombre = [@chocolate, @huevos, @lentejas]
 
-		@lista = List.new
-		@lista.insert_many(@comida_mujer)
-		@lista_vacia = List.new
-
-		@plato_mujer = Plato_i.new("Salmon con tofu", @comida_mujer, [25,10,10,15])
-
 		def impacto(menu)
 			impac_terreno = 0
 			impac_emision = 0
@@ -103,6 +97,12 @@ RSpec.describe P6 do
 	end
 
 	describe "Lista" do
+
+		before (:each) do
+			@lista = List.new
+			@lista.insert_many(@comida_mujer)
+			@lista_vacia = List.new
+		end
 	
 		it "Debe existir un nodo de la lista con sus datos, su siguiente y su previo" do
 			expect(@lista.head.value).to eq(@salmon)
@@ -156,6 +156,11 @@ RSpec.describe P6 do
 
 	describe "Plato" do
 
+		before (:each) do
+			@plato_mujer = Plato_i.new("Salmon con tofu", @comida_mujer, [25,10,10,15])
+			@plato_mujer_completo = Plato.new("Salmon con tofu", @comida_mujer, [25,10,10,15])
+		end
+
 		it "Obteniendo el nombre de un plato" do
 			expect(@plato_mujer.nombre_).to eq("Salmon con tofu")
 		end
@@ -184,6 +189,14 @@ RSpec.describe P6 do
 
 		it "Valor calórico total del conjunto de alimentos" do
 			expect(@plato_mujer.vct).to eq(846.8)
+		end
+
+		it "Valor total de las emisiones diarias de gases de efecto invernadero" do
+			expect(@plato_mujer_completo.emision_total).to eq(1.73)
+		end
+
+		it "Estimación de los metros cuadrados de uso de terreno" do
+			expect(@plato_mujer_completo.terreno_total).to eq(1.8150000000000002)
 		end
 
 	end

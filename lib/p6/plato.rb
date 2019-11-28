@@ -79,5 +79,52 @@ class Plato_i
 
 end
 
+class Plato < Plato_i
+	include Comparable
+
+	attr_accessor :emision_, :terreno_
+
+	def initalize(string, alimentos, peso)
+		super(string, alimentos, peso)
+		@emision_ = emision_total
+		@terreno_ = terreno_total
+	end
+
+	def emision_total
+		total = 0
+
+		@alimentos_.size.times do |i|
+			total += emision(i)
+		end
+
+		return total
+	end
+
+	def terreno_total
+		total = 0
+
+		@alimentos_.size.times do |i|
+			total += terreno(i)
+		end
+
+		return total
+	end
+
+	def emision(i)
+		return (peso_[i] * alimentos_[i].emision_) / 100
+	end
+
+	def terreno(i)
+		return (peso_[i] * alimentos_[i].terreno_) / 100
+	end
+
+	def impacto
+		return emision_ + terreno_
+	end
+
+	def <=>(other)
+		@gei_ <=> other.gei_
+	end
+end
 
 
