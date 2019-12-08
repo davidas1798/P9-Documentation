@@ -190,7 +190,7 @@ RSpec.describe P6 do
 
 		before (:each) do
 			@plato_mujer = Plato_i.new("Salmon con tofu", @comida_mujer, [25,10,10,15])
-			@plato_mujer_completo = Plato.new("Salmon con tofu", @comida_mujer, [25,10,10,15])
+			@plato_hombre = Plato_i.new("Lentejas con huevos", @comida_hombre, [20,100,200])
 		end
 
 		it "Obteniendo el nombre de un plato" do
@@ -239,6 +239,16 @@ RSpec.describe P6 do
             expect(@plato_mujer.kind_of?Object).to eq(true)
             expect(@plato_mujer.kind_of?BasicObject).to eq(true)
         end
+
+        context "Comparable" do
+        	it "Probando la comparacion de platos_i" do
+        		expect(@plato_mujer < @plato_hombre).to eq(true)
+        		expect(@plato_hombre > @plato_mujer).to eq(true)
+        		expect(@plato_mujer <= @plato_hombre).to eq(true)
+        		expect(@plato_hombre >= @plato_mujer).to eq(true)
+        		expect(@plato_mujer == @plato_hombre).to eq(false)
+        	end
+        end
 	end
 
 	describe "Plato" do
@@ -255,9 +265,17 @@ RSpec.describe P6 do
 		it "Estimación de los metros cuadrados de uso de terreno" do
 			expect(@plato_mujer_completo.terreno_total).to eq(1.8150000000000002)
 		end
+
+		context "Comparable" do
+        	it "Probando la comparacion de platos" do
+        		expect(@plato_mujer_completo < @plato_hombre_completo).to eq(true)
+        		expect(@plato_hombre_completo > @plato_mujer_completo).to eq(true)
+        		expect(@plato_mujer_completo <= @plato_hombre_completo).to eq(true)
+        		expect(@plato_hombre_completo >= @plato_mujer_completo).to eq(true)
+        		expect(@plato_mujer_completo == @plato_hombre_completo).to eq(false)
+        	end
+        end
 	end
-
-
 
 end
 

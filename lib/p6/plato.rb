@@ -77,6 +77,10 @@ class Plato_i
 		return (peso_[i] * alimentos[i].calorias) / 100
 	end
 
+	def <=>(other)
+		vct <=> other.vct
+	end
+
 end
 
 class Plato < Plato_i
@@ -123,7 +127,7 @@ class Plato < Plato_i
 	end
 
 	def <=>(other)
-		@gei_ <=> other.gei_
+		emision_total <=> other.emision_total
 	end
 end
 
