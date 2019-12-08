@@ -164,7 +164,24 @@ RSpec.describe P6 do
 		end
 
 		context "Enumerable" do
-			
+
+			it "Comprobando metodo collect" do
+				expect(@lista.map{|i| i}).to eq([@salmon,@tofu,@chocolate,@tofu])
+				expect(@lista.collect{|i| i}).to eq([@salmon,@tofu,@chocolate,@tofu])
+			end
+
+			it "Comprobando metodo max" do
+				expect(@lista.max).to eq(@chocolate)
+			end
+
+			it "Comprobando metodo min" do
+				expect(@lista.min).to eq(@tofu)
+			end
+
+			it "Comprobando metodo sort" do
+				expect(@lista.sort).to eq([@tofu,@tofu,@salmon,@chocolate])
+			end
+
 		end
 
 	end
@@ -206,14 +223,6 @@ RSpec.describe P6 do
 			expect(@plato_mujer.vct).to eq(846.8)
 		end
 
-		it "Valor total de las emisiones diarias de gases de efecto invernadero" do
-			expect(@plato_mujer_completo.emision_total).to eq(1.73)
-		end
-
-		it "Estimación de los metros cuadrados de uso de terreno" do
-			expect(@plato_mujer_completo.terreno_total).to eq(1.8150000000000002)
-		end
-
 		it "Comprobando la clase del objeto" do
 			expect(@plato_mujer.class).to eq(Plato_i)
 		end
@@ -230,11 +239,24 @@ RSpec.describe P6 do
             expect(@plato_mujer.kind_of?Object).to eq(true)
             expect(@plato_mujer.kind_of?BasicObject).to eq(true)
         end
-
-        
-        	
-
 	end
+
+	describe "Plato" do
+
+		before (:each) do
+			@plato_mujer_completo = Plato.new("Salmon con tofu", @comida_mujer, [25,10,10,15])
+			@plato_hombre_completo = Plato.new("Lentejas con huevos", @comida_hombre, [20,100,200])
+		end
+
+		it "Valor total de las emisiones diarias de gases de efecto invernadero" do
+			expect(@plato_mujer_completo.emision_total).to eq(1.73)
+		end
+
+		it "Estimación de los metros cuadrados de uso de terreno" do
+			expect(@plato_mujer_completo.terreno_total).to eq(1.8150000000000002)
+		end
+	end
+
 
 
 end

@@ -88,11 +88,11 @@ class List
 		end
 	end
 
-	def each()					# esto me lo estoy medio inventando
+	def each
 		puntero = @head
 		while(puntero != nil)
 			yield puntero.value
-			puntero = head.next
+			puntero = puntero.next
 		end
 	end
 
